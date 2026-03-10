@@ -7,8 +7,8 @@
 #SBATCH --partition=allgroups
 #SBATCH --account=p1026
 #SBATCH --ntasks=8
-#SBATCH --mem=150MB
-#SBATCH --time=00:30:00
+#SBATCH --mem=2G
+#SBATCH --time=02:30:00
 
 IMAGE="$HOME/Images/debian12.sif"
 
