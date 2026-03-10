@@ -6,7 +6,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=allgroups
 #SBATCH --account=p1026
-#SBATCH --ntasks=16
+#SBATCH --ntasks=8
 #SBATCH --mem=3G
 #SBATCH --time=03:00:00
 
@@ -14,7 +14,7 @@ IMAGE="$HOME/Images/debian12.sif"
 
 spack load /ioc7dnl
 
-mpirun -np 16 --bind-to core --map-by core singularity exec \
+mpirun -np $SLURM_NTASKS singularity exec \
   --bind /stor/progetti/p1026/p1026u64/HPC_Exam/Solver/run:/mnt \
   --pwd /mnt \
   $IMAGE ./cans
