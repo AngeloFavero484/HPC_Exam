@@ -12,7 +12,12 @@
 
 IMAGE="$HOME/Images/debian12.sif"
 
+# Carica l'ambiente MPI sull'host
 spack load /ioc7dnl
 
-singularity exec --bind /stor/progetti/p1026/p1026u64/HPC_Exam/Solver/run:/mnt --pwd /mnt \
-$IMAGE mpirun -np 16 cans
+# Esecuzione ibrida: mpirun (host) lancia n istanze di Singularity
+# All'interno del container viene eseguito ./cans partendo dalla cartella /mnt
+mpirun -np 16 singularity exec \
+  --bind /stor/progetti/p1026/p1026u64/HPC_Exam/Solver/run:/mnt \
+  --pwd /mnt \
+  $IMAGE ./cans
