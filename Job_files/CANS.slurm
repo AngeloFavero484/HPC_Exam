@@ -12,7 +12,7 @@
 
 IMAGE="$HOME/Images/debian12.sif"
 
-spack load openmpi@3.1.4
+spack load /ioc7dnl
 
 cd $SLURM_SUBMIT_DIR
 
