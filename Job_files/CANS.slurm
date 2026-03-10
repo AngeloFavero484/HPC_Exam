@@ -6,12 +6,12 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=allgroups
 #SBATCH --account=p1026
-#SBATCH --ntasks=8
+#SBATCH --ntasks=16
 #SBATCH --mem=2G
-#SBATCH --time=02:30:00
+#SBATCH --time=01:00:00
 
 IMAGE="$HOME/Images/debian12.sif"
 
 cd $SLURM_SUBMIT_DIR
 
-singularity exec --bind $HOME:$HOME $IMAGE mpirun -np 8 cans
+singularity exec --bind $HOME:$HOME $IMAGE mpirun -np 16 cans
