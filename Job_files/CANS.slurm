@@ -14,7 +14,7 @@ IMAGE="$HOME/Images/debian12.sif"
 
 spack load /ioc7dnl
 
-mpirun -np $SLURM_NTASKS singularity exec \
+singularity exec \
   --bind /stor/progetti/p1026/p1026u64/HPC_Exam/Solver/run:/mnt \
   --pwd /mnt \
-  $IMAGE ./cans
+  $IMAGE mpirun -np $SLURM_NTASKS ./cans
