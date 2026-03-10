@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: debian:12
+
+%labels
+    Author Angelo Favero
+    Description Debian 12 HPC environment (MPI + OpenMP + FFTW)
+
+%environment
+    export LC_ALL=C
+    export OMPI_MCA_btl_vader_single_copy_mechanism=none
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        gcc \
+        g++ \
+        gfortran \
+        make \
+        cmake \
+        git \
+        openmpi-bin \
+        libopenmpi-dev \
+        libfftw3-dev \
+        libfftw3-mpi-dev \
+        ca-certificates
+
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+%runscript
+    echo "HPC container ready."
+    exec "$@"
