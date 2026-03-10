@@ -10,11 +10,10 @@
 #SBATCH --mem=3G
 #SBATCH --time=03:00:00
 
-IMAGE="$HOME/Images/debian12.sif"
-
 spack load /ioc7dnl
 
-singularity exec \
-  --bind /stor/progetti/p1026/p1026u64/HPC_Exam/Solver/run:/mnt \
-  --pwd /mnt \
-  $IMAGE mpirun -np $SLURM_NTASKS ./cans
+IMAGE="$HOME/Images/debian12.sif"
+
+cd $SLURM_SUBMIT_DIR
+
+singularity exec --bind $HOME:$HOME $IMAGE mpirun -np 8 cans
