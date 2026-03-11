@@ -6,9 +6,9 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=allgroups
 #SBATCH --account=p1026
-#SBATCH --ntasks=8
+#SBATCH --ntasks=16
 #SBATCH --mem=3G
-#SBATCH --time=03:00:00
+#SBATCH --time=01:30:00
 
 IMAGE="$HOME/Images/debian12.sif"
 
