@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=cans_test1
+#SBATCH --job-name=cans_test2
 #SBATCH --error=cans_.%j.err
 #SBATCH --output=cans_.%j.out
 #SBATCH --mail-user=angeloraimondo.favero@studenti.unipd.it
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=allgroups
 #SBATCH --account=p1026
-#SBATCH --ntasks=64
+#SBATCH --ntasks=8
 #SBATCH --mem=3G
-#SBATCH --time=00:30:00
+#SBATCH --time=01:30:00
 
 IMAGE="$HOME/Images/debian12.sif"
 
